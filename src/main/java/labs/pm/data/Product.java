@@ -2,6 +2,7 @@ package labs.pm.data;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Objects;
 
 
 /**
@@ -74,5 +75,29 @@ public class Product {
 
     public Product applyRating(Rating newRating) {
         return new Product(id, name, price, newRating);
+    }
+
+    @Override
+    public String toString() {
+        return id + ", "
+                + name + ", "
+                + price + ", "
+                + getDiscount() + ", "
+                + rating.getStars();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (o instanceof Product product) {
+            return id == product.id && Objects.equals(name, product.name);
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }
