@@ -17,7 +17,7 @@ import java.util.Objects;
  * @author oracle
  * @version 4.0
  */
-public abstract class Product {
+public sealed class Product permits Drink, Food {
 
     /**
      * A constant that defines a
@@ -66,7 +66,9 @@ public abstract class Product {
         return rating;
     }
 
-    public abstract Product applyRating(Rating newRating);
+    public Product applyRating(Rating newRating) {
+        return new Product(getId(), getName(), getPrice(), newRating);
+    }
 
     public LocalDate getBestBefore() {
         return LocalDate.now();
