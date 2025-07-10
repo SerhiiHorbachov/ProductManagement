@@ -2,6 +2,7 @@ package labs.pm.data;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDate;
 import java.util.Objects;
 
 
@@ -16,7 +17,7 @@ import java.util.Objects;
  * @author oracle
  * @version 4.0
  */
-public class Product {
+public abstract class Product {
 
     /**
      * A constant that defines a
@@ -73,8 +74,10 @@ public class Product {
         return rating;
     }
 
-    public Product applyRating(Rating newRating) {
-        return new Product(id, name, price, newRating);
+    public abstract Product applyRating(Rating newRating);
+
+    public LocalDate getBestBefore() {
+        return LocalDate.now();
     }
 
     @Override
@@ -83,7 +86,8 @@ public class Product {
                 + name + ", "
                 + price + ", "
                 + getDiscount() + ", "
-                + rating.getStars();
+                + rating.getStars() + ", "
+                + getBestBefore();
     }
 
     @Override
