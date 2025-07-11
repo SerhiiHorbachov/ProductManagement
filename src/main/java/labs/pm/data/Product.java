@@ -17,7 +17,9 @@ import java.util.Objects;
  * @author oracle
  * @version 4.0
  */
-public sealed class Product permits Drink, Food {
+public sealed class Product
+        implements Rateable<Product>
+        permits Drink, Food {
 
     /**
      * A constant that defines a
