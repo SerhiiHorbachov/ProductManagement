@@ -6,6 +6,7 @@ import labs.pm.data.Rating;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Locale;
 
 
 /**
@@ -16,7 +17,7 @@ import java.time.LocalDate;
  */
 public class Shop {
     public static void main(String[] args) {
-        ProductManager pm = new ProductManager();
+        ProductManager pm = new ProductManager(Locale.ENGLISH);
 
         Product p1 = pm.createProduct(101, "Tea", BigDecimal.valueOf(1.99), Rating.THREE_STAR);
         Product p2 = pm.createProduct(102, "Coffee", BigDecimal.valueOf(1.99), Rating.FOUR_STAR);
