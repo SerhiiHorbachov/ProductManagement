@@ -22,7 +22,7 @@ public class ProductManager {
     public ProductManager(Locale locale) {
         this.local = locale;
         resourceBundle = ResourceBundle.getBundle("resources", locale);
-        dateTimeFormatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).localizedBy(locale);
+        dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).localizedBy(locale);
         moneyFormat = NumberFormat.getCurrencyInstance(locale);
     }
 
