@@ -91,7 +91,7 @@ public sealed class Product
         if (this == o) return true;
 
         if (o instanceof Product product) {
-            return id == product.id && Objects.equals(name, product.name);
+            return id == product.id;
         }
         return false;
     }
